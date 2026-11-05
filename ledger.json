@@ -1,0 +1,23 @@
+{
+  "topic": null,
+  "settings": {
+    "mastery_gate": "strict",
+    "target_retention": 0.9,
+    "interleave_rate": 0.4,
+    "difficulty_band": [0.75, 0.85],
+    "sr": {
+      "s_init": 2.0,
+      "stability_gain": 1.0,
+      "encompass_credit": 0.5,
+      "review_days": 7,
+      "mastered_days": 21,
+      "fail_factor": 0.5,
+      "s_floor": 0.5
+    }
+  },
+  "rank": "bronze",
+  "edge": [],
+  "concepts": {},
+  "due_for_review": [],
+  "exercise_count": 0
+}
