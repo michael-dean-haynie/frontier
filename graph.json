@@ -1,5 +1,401 @@
 {
-  "topic": null,
-  "concepts": {},
-  "ranks": {}
+  "topic": "GraphQL",
+  "concepts": {
+    "sdl-basics": {
+      "module": "type-system", "tier": "fluency", "difficulty": 2,
+      "prereqs": [], "encompasses": []
+    },
+    "scalar-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 2,
+      "prereqs": ["sdl-basics"], "encompasses": ["sdl-basics"]
+    },
+    "object-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["sdl-basics", "scalar-types"], "encompasses": ["sdl-basics", "scalar-types"]
+    },
+    "field-arguments": {
+      "module": "type-system", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["object-types"], "encompasses": ["object-types"]
+    },
+    "enum-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["object-types"], "encompasses": ["scalar-types"]
+    },
+    "list-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["object-types"], "encompasses": ["object-types"]
+    },
+    "non-null-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["object-types"], "encompasses": ["object-types"]
+    },
+    "input-object-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 4,
+      "prereqs": ["object-types", "field-arguments"], "encompasses": ["object-types", "field-arguments"]
+    },
+    "interface-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 5,
+      "prereqs": ["object-types"], "encompasses": ["object-types"]
+    },
+    "union-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 5,
+      "prereqs": ["object-types"], "encompasses": ["object-types"]
+    },
+    "custom-scalars": {
+      "module": "type-system", "tier": "judgment", "difficulty": 5,
+      "prereqs": ["scalar-types"], "encompasses": ["scalar-types"]
+    },
+    "schema-root-types": {
+      "module": "type-system", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["object-types"], "encompasses": ["object-types"]
+    },
+    "the-schema-document": {
+      "module": "type-system", "tier": "fluency", "difficulty": 4,
+      "prereqs": ["object-types", "schema-root-types", "non-null-types", "list-types"],
+      "encompasses": ["sdl-basics", "scalar-types", "object-types", "schema-root-types", "non-null-types", "list-types"]
+    },
+
+    "query-operation": {
+      "module": "queries-resolvers", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["the-schema-document"], "encompasses": ["object-types"]
+    },
+    "resolver-signature": {
+      "module": "queries-resolvers", "tier": "fluency", "difficulty": 4,
+      "prereqs": ["schema-root-types", "field-arguments"], "encompasses": ["field-arguments"]
+    },
+    "resolver-map": {
+      "module": "queries-resolvers", "tier": "fluency", "difficulty": 4,
+      "prereqs": ["resolver-signature", "the-schema-document"], "encompasses": ["resolver-signature"]
+    },
+    "default-resolvers": {
+      "module": "queries-resolvers", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["resolver-map"], "encompasses": ["resolver-map"]
+    },
+    "resolver-chain": {
+      "module": "queries-resolvers", "tier": "judgment", "difficulty": 5,
+      "prereqs": ["resolver-map", "default-resolvers"], "encompasses": ["resolver-map", "default-resolvers"]
+    },
+    "context-object": {
+      "module": "queries-resolvers", "tier": "fluency", "difficulty": 4,
+      "prereqs": ["resolver-signature"], "encompasses": ["resolver-signature"]
+    },
+    "variables": {
+      "module": "queries-resolvers", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["query-operation", "field-arguments"], "encompasses": ["field-arguments", "query-operation"]
+    },
+    "aliases-fragments": {
+      "module": "queries-resolvers", "tier": "fluency", "difficulty": 4,
+      "prereqs": ["query-operation", "interface-types"], "encompasses": ["query-operation"]
+    },
+    "info-argument": {
+      "module": "queries-resolvers", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["resolver-signature"], "encompasses": ["resolver-signature"]
+    },
+    "apollo-server-setup": {
+      "module": "queries-resolvers", "tier": "fluency", "difficulty": 3,
+      "prereqs": ["resolver-map"], "encompasses": ["resolver-map"]
+    },
+
+    "mutation-operation": {
+      "module": "mutations-inputs", "tier": "fluency", "difficulty": 4,
+      "prereqs": ["query-operation", "resolver-map"], "encompasses": ["query-operation", "resolver-map"]
+    },
+    "mutation-input-arg": {
+      "module": "mutations-inputs", "tier": "judgment", "difficulty": 5,
+      "prereqs": ["mutation-operation", "input-object-types"], "encompasses": ["input-object-types", "mutation-operation"]
+    },
+    "mutation-payload-type": {
+      "module": "mutations-inputs", "tier": "judgment", "difficulty": 5,
+      "prereqs": ["mutation-operation", "object-types"], "encompasses": ["mutation-operation", "object-types"]
+    },
+    "mutation-side-effects": {
+      "module": "mutations-inputs", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["mutation-operation"], "encompasses": ["mutation-operation"]
+    },
+
+    "nullability-semantics": {
+      "module": "lists-nullability", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["non-null-types", "resolver-chain"], "encompasses": ["non-null-types"]
+    },
+    "null-propagation": {
+      "module": "lists-nullability", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["nullability-semantics"], "encompasses": ["nullability-semantics", "non-null-types"]
+    },
+    "list-nullability": {
+      "module": "lists-nullability", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["list-types", "nullability-semantics"], "encompasses": ["list-types", "nullability-semantics"]
+    },
+    "partial-results": {
+      "module": "lists-nullability", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["null-propagation"], "encompasses": ["null-propagation"]
+    },
+
+    "n-plus-one-problem": {
+      "module": "n-plus-one-dataloader", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["resolver-chain"], "encompasses": ["resolver-chain"]
+    },
+    "dataloader-batching": {
+      "module": "n-plus-one-dataloader", "tier": "fluency", "difficulty": 6,
+      "prereqs": ["n-plus-one-problem", "context-object"], "encompasses": ["n-plus-one-problem"]
+    },
+    "dataloader-caching": {
+      "module": "n-plus-one-dataloader", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["dataloader-batching"], "encompasses": ["dataloader-batching"]
+    },
+    "dataloader-per-request": {
+      "module": "n-plus-one-dataloader", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["dataloader-batching", "context-object"], "encompasses": ["dataloader-batching", "context-object"]
+    },
+    "batch-ordering": {
+      "module": "n-plus-one-dataloader", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["dataloader-batching"], "encompasses": ["dataloader-batching"]
+    },
+    "lookahead-optimization": {
+      "module": "n-plus-one-dataloader", "tier": "judgment", "difficulty": 8,
+      "prereqs": ["info-argument", "n-plus-one-problem"], "encompasses": ["info-argument", "n-plus-one-problem"]
+    },
+
+    "client-driven-design": {
+      "module": "schema-design", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["the-schema-document", "mutation-payload-type"], "encompasses": ["the-schema-document"]
+    },
+    "naming-conventions": {
+      "module": "schema-design", "tier": "judgment", "difficulty": 4,
+      "prereqs": ["the-schema-document"], "encompasses": ["the-schema-document"]
+    },
+    "relationships-modeling": {
+      "module": "schema-design", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["object-types", "resolver-chain"], "encompasses": ["object-types", "resolver-chain"]
+    },
+    "offset-pagination": {
+      "module": "schema-design", "tier": "fluency", "difficulty": 5,
+      "prereqs": ["field-arguments", "list-types"], "encompasses": ["field-arguments", "list-types"]
+    },
+    "cursor-pagination": {
+      "module": "schema-design", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["offset-pagination"], "encompasses": ["offset-pagination"]
+    },
+    "relay-connections": {
+      "module": "schema-design", "tier": "judgment", "difficulty": 8,
+      "prereqs": ["cursor-pagination", "interface-types"], "encompasses": ["cursor-pagination", "interface-types"]
+    },
+    "abstract-type-design": {
+      "module": "schema-design", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["interface-types", "union-types"], "encompasses": ["interface-types", "union-types"]
+    },
+    "global-object-identification": {
+      "module": "schema-design", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["relay-connections", "interface-types"], "encompasses": ["interface-types"]
+    },
+    "input-design": {
+      "module": "schema-design", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["input-object-types", "nullability-semantics"], "encompasses": ["input-object-types", "nullability-semantics"]
+    },
+
+    "errors-array": {
+      "module": "error-handling", "tier": "judgment", "difficulty": 5,
+      "prereqs": ["resolver-map", "null-propagation"], "encompasses": ["resolver-map"]
+    },
+    "error-extensions": {
+      "module": "error-handling", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["errors-array"], "encompasses": ["errors-array"]
+    },
+    "typed-errors-union": {
+      "module": "error-handling", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["union-types", "errors-array", "mutation-payload-type"], "encompasses": ["union-types", "errors-array"]
+    },
+    "user-errors-payload": {
+      "module": "error-handling", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["mutation-payload-type", "errors-array"], "encompasses": ["mutation-payload-type", "errors-array"]
+    },
+    "error-boundaries": {
+      "module": "error-handling", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["typed-errors-union", "user-errors-payload"], "encompasses": ["typed-errors-union", "user-errors-payload", "error-extensions"]
+    },
+
+    "subscription-operation": {
+      "module": "subscriptions", "tier": "fluency", "difficulty": 5,
+      "prereqs": ["the-schema-document", "resolver-map"], "encompasses": ["resolver-map"]
+    },
+    "subscription-resolver": {
+      "module": "subscriptions", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["subscription-operation", "context-object"], "encompasses": ["subscription-operation"]
+    },
+    "pubsub-mechanics": {
+      "module": "subscriptions", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["subscription-resolver"], "encompasses": ["subscription-resolver"]
+    },
+    "graphql-ws-protocol": {
+      "module": "subscriptions", "tier": "fluency", "difficulty": 6,
+      "prereqs": ["subscription-operation", "apollo-server-setup"], "encompasses": ["subscription-operation", "apollo-server-setup"]
+    },
+    "subscription-scaling": {
+      "module": "subscriptions", "tier": "judgment", "difficulty": 8,
+      "prereqs": ["pubsub-mechanics", "graphql-ws-protocol"], "encompasses": ["pubsub-mechanics", "graphql-ws-protocol"]
+    },
+
+    "auth-context": {
+      "module": "security", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["context-object"], "encompasses": ["context-object"]
+    },
+    "field-authorization": {
+      "module": "security", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["auth-context", "resolver-chain"], "encompasses": ["auth-context", "resolver-chain"]
+    },
+    "depth-limiting": {
+      "module": "security", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["query-operation", "resolver-chain"], "encompasses": ["resolver-chain"]
+    },
+    "complexity-analysis": {
+      "module": "security", "tier": "judgment", "difficulty": 8,
+      "prereqs": ["depth-limiting"], "encompasses": ["depth-limiting"]
+    },
+    "introspection-control": {
+      "module": "security", "tier": "judgment", "difficulty": 5,
+      "prereqs": ["apollo-server-setup"], "encompasses": ["apollo-server-setup"]
+    },
+    "rate-limiting-batching-abuse": {
+      "module": "security", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["complexity-analysis"], "encompasses": ["complexity-analysis"]
+    },
+    "persisted-trusted-documents": {
+      "module": "security", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["apollo-server-setup", "complexity-analysis"], "encompasses": ["complexity-analysis"]
+    },
+
+    "response-caching": {
+      "module": "caching-performance", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["apollo-server-setup", "resolver-chain"], "encompasses": ["resolver-chain"]
+    },
+    "cache-hints": {
+      "module": "caching-performance", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["response-caching"], "encompasses": ["response-caching"]
+    },
+    "automatic-persisted-queries": {
+      "module": "caching-performance", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["apollo-server-setup"], "encompasses": ["apollo-server-setup"]
+    },
+    "field-level-caching": {
+      "module": "caching-performance", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["dataloader-caching", "response-caching"], "encompasses": ["dataloader-caching", "response-caching"]
+    },
+
+    "deprecation": {
+      "module": "schema-evolution", "tier": "fluency", "difficulty": 4,
+      "prereqs": ["the-schema-document"], "encompasses": ["the-schema-document"]
+    },
+    "additive-changes": {
+      "module": "schema-evolution", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["deprecation", "client-driven-design"], "encompasses": ["deprecation"]
+    },
+    "breaking-change-detection": {
+      "module": "schema-evolution", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["additive-changes"], "encompasses": ["additive-changes"]
+    },
+    "versionless-api": {
+      "module": "schema-evolution", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["additive-changes"], "encompasses": ["additive-changes"]
+    },
+
+    "federation-intro": {
+      "module": "federation", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["the-schema-document", "relationships-modeling"], "encompasses": ["the-schema-document", "relationships-modeling"]
+    },
+    "subgraph-schema": {
+      "module": "federation", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["federation-intro"], "encompasses": ["federation-intro"]
+    },
+    "entity-keys": {
+      "module": "federation", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["subgraph-schema"], "encompasses": ["subgraph-schema"]
+    },
+    "reference-resolvers": {
+      "module": "federation", "tier": "judgment", "difficulty": 8,
+      "prereqs": ["entity-keys", "dataloader-batching"], "encompasses": ["entity-keys", "dataloader-batching", "batch-ordering"]
+    },
+    "shareable-external": {
+      "module": "federation", "tier": "judgment", "difficulty": 8,
+      "prereqs": ["entity-keys"], "encompasses": ["entity-keys"]
+    },
+    "requires-provides": {
+      "module": "federation", "tier": "judgment", "difficulty": 9,
+      "prereqs": ["reference-resolvers", "shareable-external"], "encompasses": ["reference-resolvers", "shareable-external"]
+    },
+    "supergraph-composition": {
+      "module": "federation", "tier": "judgment", "difficulty": 8,
+      "prereqs": ["entity-keys", "breaking-change-detection"], "encompasses": ["entity-keys", "breaking-change-detection"]
+    },
+    "router-query-planning": {
+      "module": "federation", "tier": "judgment", "difficulty": 9,
+      "prereqs": ["supergraph-composition", "reference-resolvers"], "encompasses": ["supergraph-composition", "reference-resolvers", "requires-provides"]
+    },
+
+    "resolver-testing": {
+      "module": "observability-testing", "tier": "fluency", "difficulty": 5,
+      "prereqs": ["resolver-map", "mutation-operation"], "encompasses": ["resolver-map", "mutation-operation"]
+    },
+    "schema-testing": {
+      "module": "observability-testing", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["resolver-testing", "breaking-change-detection"], "encompasses": ["resolver-testing", "breaking-change-detection"]
+    },
+    "tracing-metrics": {
+      "module": "observability-testing", "tier": "judgment", "difficulty": 7,
+      "prereqs": ["resolver-chain", "apollo-server-setup"], "encompasses": ["resolver-chain", "apollo-server-setup"]
+    },
+    "error-monitoring": {
+      "module": "observability-testing", "tier": "judgment", "difficulty": 6,
+      "prereqs": ["error-extensions", "tracing-metrics"], "encompasses": ["error-extensions", "tracing-metrics"]
+    },
+
+    "performance-budget": {
+      "module": "production", "tier": "judgment", "difficulty": 9,
+      "prereqs": ["field-level-caching", "complexity-analysis", "lookahead-optimization"],
+      "encompasses": ["field-level-caching", "complexity-analysis", "lookahead-optimization"]
+    },
+    "api-design-review": {
+      "module": "production", "tier": "judgment", "difficulty": 9,
+      "prereqs": ["client-driven-design", "relay-connections", "error-boundaries", "versionless-api"],
+      "encompasses": ["client-driven-design", "relay-connections", "error-boundaries", "versionless-api"]
+    },
+    "production-readiness": {
+      "module": "production", "tier": "judgment", "difficulty": 10,
+      "prereqs": ["field-authorization", "persisted-trusted-documents", "error-monitoring", "breaking-change-detection"],
+      "encompasses": ["field-authorization", "persisted-trusted-documents", "error-monitoring"]
+    },
+    "distributed-graph-mastery": {
+      "module": "production", "tier": "judgment", "difficulty": 10,
+      "prereqs": ["router-query-planning", "production-readiness", "performance-budget"],
+      "encompasses": ["router-query-planning", "production-readiness", "performance-budget", "api-design-review"]
+    }
+  },
+  "ranks": {
+    "bronze": {
+      "modules": ["type-system"],
+      "boss": "the-schema-document"
+    },
+    "silver": {
+      "modules": ["queries-resolvers", "mutations-inputs"],
+      "boss": "mutation-payload-type"
+    },
+    "gold": {
+      "modules": ["lists-nullability", "n-plus-one-dataloader"],
+      "boss": "dataloader-per-request"
+    },
+    "platinum": {
+      "modules": ["schema-design", "error-handling"],
+      "boss": "relay-connections"
+    },
+    "diamond": {
+      "modules": ["subscriptions", "caching-performance"],
+      "boss": "subscription-scaling"
+    },
+    "master": {
+      "modules": ["security", "schema-evolution", "observability-testing"],
+      "boss": "production-readiness"
+    },
+    "grandmaster": {
+      "modules": ["federation", "production"],
+      "boss": "distributed-graph-mastery"
+    }
+  }
 }

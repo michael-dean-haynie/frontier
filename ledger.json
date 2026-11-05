@@ -1,5 +1,5 @@
 {
-  "topic": null,
+  "topic": "GraphQL",
   "settings": {
     "mastery_gate": "strict",
     "target_retention": 0.9,
@@ -16,7 +16,7 @@
     }
   },
   "rank": "bronze",
-  "edge": [],
+  "edge": ["sdl-basics"],
   "concepts": {},
   "due_for_review": [],
   "exercise_count": 0
