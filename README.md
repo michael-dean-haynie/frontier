@@ -25,6 +25,15 @@ brain, its state, and its project history all live together.
 `/review` resurfaces decayed concepts · `/status` shows the map · `/retro` captures notes to
 improve the system.
 
+## See your frontier
+[`FRONTIER.md`](FRONTIER.md) is a visual dashboard of the knowledge graph — rank progress and a
+Mermaid map of every concept colored by state (mastered / edge / locked), rendered right on GitHub.
+It's generated from `graph.json` + `ledger.json`, so regenerate it to refresh:
+```
+node tools/frontier-map.mjs              # rewrite FRONTIER.md
+node tools/frontier-map.mjs --terminal   # colored summary in the terminal
+```
+
 ## Updating a topic repo later
 Improved this template? Copy its `.claude/` folder and the markdown docs over your topic repo's —
 your `graph.json`, `ledger.json`, `history.jsonl`, `log/`, and `workspace/` are left untouched. `/retro` notes you
@@ -38,6 +47,8 @@ collect in a topic repo (`LEARNINGS.md`) are what you fold back into this templa
 - `.claude/agents/grader.md` — the strict two-tier grader
 - `graph.json` / `ledger.json` — the knowledge graph and per-concept state (generated/seeded)
 - `history.jsonl` — append-only progression log; the time series `/status` and `/next` read
+- `tools/frontier-map.mjs` — renders `FRONTIER.md` (and a terminal view) from the graph + ledger
+- `FRONTIER.md` — generated visual dashboard of the frontier (Mermaid; renders on GitHub)
 - `log/` · `workspace/` — transcripts · the one growing project
 
 ## Before you start
