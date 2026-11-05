@@ -4,7 +4,10 @@
     "mastery_gate": "strict",
     "target_retention": 0.9,
     "interleave_rate": 0.4,
-    "difficulty_band": [0.75, 0.85],
+    "difficulty_band": [
+      0.75,
+      0.85
+    ],
     "sr": {
       "s_init": 2.0,
       "stability_gain": 1.0,
@@ -38,35 +41,216 @@
     "federation-intro"
   ],
   "concepts": {
-    "sdl-basics": { "stability": 25.0, "difficulty": 2, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "scalar-types": { "stability": 25.0, "difficulty": 2, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "object-types": { "stability": 25.0, "difficulty": 3, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "field-arguments": { "stability": 25.0, "difficulty": 3, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "list-types": { "stability": 25.0, "difficulty": 3, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "non-null-types": { "stability": 25.0, "difficulty": 3, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "schema-root-types": { "stability": 25.0, "difficulty": 3, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "input-object-types": { "stability": 25.0, "difficulty": 4, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "the-schema-document": { "stability": 25.0, "difficulty": 4, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "query-operation": { "stability": 25.0, "difficulty": 3, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "resolver-signature": { "stability": 25.0, "difficulty": 4, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "resolver-map": { "stability": 25.0, "difficulty": 4, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "default-resolvers": { "stability": 25.0, "difficulty": 3, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "context-object": { "stability": 25.0, "difficulty": 4, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "variables": { "stability": 25.0, "difficulty": 3, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "mutation-operation": { "stability": 25.0, "difficulty": 4, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "offset-pagination": { "stability": 25.0, "difficulty": 5, "last_seen": "2026-11-04", "reps": 1, "state": "mastered" },
-    "resolver-chain": { "stability": 25.0, "difficulty": 5, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "mutation-input-arg": { "stability": 25.0, "difficulty": 5, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "mutation-payload-type": { "stability": 25.0, "difficulty": 5, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "nullability-semantics": { "stability": 25.0, "difficulty": 6, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "null-propagation": { "stability": 25.0, "difficulty": 7, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "partial-results": { "stability": 25.0, "difficulty": 7, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "n-plus-one-problem": { "stability": 25.0, "difficulty": 6, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 5 },
-    "cursor-pagination": { "stability": 25.0, "difficulty": 7, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "relationships-modeling": { "stability": 25.0, "difficulty": 6, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "errors-array": { "stability": 25.0, "difficulty": 5, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 },
-    "user-errors-payload": { "stability": 25.0, "difficulty": 6, "last_seen": "2026-11-04", "reps": 1, "state": "mastered", "judgment": 4 }
+    "sdl-basics": {
+      "stability": 25.0,
+      "difficulty": 2,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "scalar-types": {
+      "stability": 25.0,
+      "difficulty": 2,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "object-types": {
+      "stability": 25.0,
+      "difficulty": 3,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "field-arguments": {
+      "stability": 25.0,
+      "difficulty": 3,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "list-types": {
+      "stability": 25.0,
+      "difficulty": 3,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "non-null-types": {
+      "stability": 30.0,
+      "difficulty": 3,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "schema-root-types": {
+      "stability": 25.0,
+      "difficulty": 3,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "input-object-types": {
+      "stability": 25.0,
+      "difficulty": 4,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "the-schema-document": {
+      "stability": 25.0,
+      "difficulty": 4,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "query-operation": {
+      "stability": 25.0,
+      "difficulty": 3,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "resolver-signature": {
+      "stability": 25.0,
+      "difficulty": 4,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "resolver-map": {
+      "stability": 32.5,
+      "difficulty": 4,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "default-resolvers": {
+      "stability": 32.5,
+      "difficulty": 3,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "context-object": {
+      "stability": 25.0,
+      "difficulty": 4,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "variables": {
+      "stability": 25.0,
+      "difficulty": 3,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "mutation-operation": {
+      "stability": 25.0,
+      "difficulty": 4,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "offset-pagination": {
+      "stability": 29.0,
+      "difficulty": 5,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered"
+    },
+    "resolver-chain": {
+      "stability": 50.0,
+      "difficulty": 4.5,
+      "last_seen": "2026-11-04",
+      "reps": 2,
+      "state": "mastered",
+      "judgment": 5
+    },
+    "mutation-input-arg": {
+      "stability": 25.0,
+      "difficulty": 5,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered",
+      "judgment": 4
+    },
+    "mutation-payload-type": {
+      "stability": 25.0,
+      "difficulty": 5,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered",
+      "judgment": 4
+    },
+    "nullability-semantics": {
+      "stability": 30.0,
+      "difficulty": 6,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered",
+      "judgment": 4
+    },
+    "null-propagation": {
+      "stability": 35.0,
+      "difficulty": 6.5,
+      "last_seen": "2026-11-04",
+      "reps": 2,
+      "state": "mastered",
+      "judgment": 5
+    },
+    "partial-results": {
+      "stability": 25.0,
+      "difficulty": 7,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered",
+      "judgment": 4
+    },
+    "n-plus-one-problem": {
+      "stability": 37.5,
+      "difficulty": 5.5,
+      "last_seen": "2026-11-04",
+      "reps": 2,
+      "state": "mastered",
+      "judgment": 5
+    },
+    "cursor-pagination": {
+      "stability": 33.0,
+      "difficulty": 7,
+      "last_seen": "2026-11-04",
+      "reps": 2,
+      "state": "mastered",
+      "judgment": 4
+    },
+    "relationships-modeling": {
+      "stability": 25.0,
+      "difficulty": 6,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered",
+      "judgment": 4
+    },
+    "errors-array": {
+      "stability": 25.0,
+      "difficulty": 5,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "mastered",
+      "judgment": 4
+    },
+    "user-errors-payload": {
+      "stability": 12.5,
+      "difficulty": 7,
+      "last_seen": "2026-11-04",
+      "reps": 1,
+      "state": "review",
+      "judgment": 2
+    }
   },
-  "due_for_review": [],
+  "due_for_review": [
+    "user-errors-payload"
+  ],
   "exercise_count": 0
 }

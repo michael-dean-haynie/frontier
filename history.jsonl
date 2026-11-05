@@ -1,0 +1,5 @@
+{"id": "quiz-2026-11-04-1", "date": "2026-11-04", "module": "schema-design", "concepts": ["cursor-pagination"], "tier": "quiz", "review_of": "cursor-pagination", "result": "pass", "judgment": 4, "struggled": false}
+{"id": "quiz-2026-11-04-2", "date": "2026-11-04", "module": "lists-nullability", "concepts": ["null-propagation"], "tier": "quiz", "review_of": "null-propagation", "result": "pass", "judgment": 5, "struggled": false}
+{"id": "quiz-2026-11-04-3", "date": "2026-11-04", "module": "n-plus-one-dataloader", "concepts": ["n-plus-one-problem"], "tier": "quiz", "review_of": "n-plus-one-problem", "result": "pass", "judgment": 5, "struggled": false}
+{"id": "quiz-2026-11-04-4", "date": "2026-11-04", "module": "error-handling", "concepts": ["user-errors-payload"], "tier": "quiz", "review_of": "user-errors-payload", "result": "fail", "judgment": 2, "struggled": true}
+{"id": "quiz-2026-11-04-5", "date": "2026-11-04", "module": "queries-resolvers", "concepts": ["resolver-chain"], "tier": "quiz", "review_of": "resolver-chain", "result": "pass", "judgment": 5, "struggled": false}
