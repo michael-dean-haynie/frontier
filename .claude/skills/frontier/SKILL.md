@@ -1,6 +1,6 @@
 ---
 name: frontier
-description: "Frontier — a deliberate-practice engine for mastering a technical topic through interdependent exercises in one growing project, driven by a prerequisite knowledge graph with per-concept spaced-repetition decay. Use for any /roadmap, /next, /grade, /review, /status, or /retro command in this repo, and whenever generating exercises, running Socratic sessions, grading, or tracking learning progression. Topic-agnostic: GraphQL, Temporal, Kubernetes, Docker, anything set by the roadmap."
+description: "Frontier — a deliberate-practice engine for mastering a technical topic through interdependent exercises in one growing project, driven by a prerequisite knowledge graph with per-concept spaced-repetition decay. Use for any /roadmap, /next, /grade, /quiz, /review, /status, or /retro command in this repo, and whenever generating exercises, running Socratic sessions, grading, or tracking learning progression. Topic-agnostic: GraphQL, Temporal, Kubernetes, Docker, anything set by the roadmap."
 ---
 
 # Frontier engine
@@ -79,6 +79,16 @@ concept into a new exercise instead of drilling it; prefer dissimilar concepts t
 periodically a novel scenario with the concept *unnamed*, forcing diagnosis (the transfer probe).
 Block (drill one concept) only on first exposure; interleave thereafter. Managing expectation:
 when interleaving, tell the learner it will feel harder and that's the point.
+
+## Quick quiz (`/quiz`) — the lightweight path
+A few rapid Socratic recall questions with **no code, no failing test, no `workspace/` edits, and
+no `/grade` step** — for when there are only a few minutes. Unlike `/review` (which fires only on
+concepts that have decayed past due), `/quiz [n]` always finds questions: it takes due concepts
+first, then backfills from introduced concepts nearest to due. It only quizzes concepts that
+already have a ledger entry — introducing a concept stays `/next`'s job. Each answer is scored
+inline on the judgment rubric (no `grader` subagent) and **still updates the ledger** (judgment
+tier, `perf = judgment/5`) and appends one `history.jsonl` record per concept (`tier: "quiz"`), so
+the recall counts toward spaced repetition. Grade hard anyway — a quick quiz is not a soft one.
 
 ## Two-tier grading (`/grade`) — see `references/grading.md`
 - **Fluency tier:** run the test, record time-to-correct. Fast+correct -> extend interval;
