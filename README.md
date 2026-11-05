@@ -23,7 +23,8 @@ brain, its state, and its project history all live together.
 ## The loop
 `/next` → answer the predict question, write code in `workspace/` → `/grade`. Repeat.
 `/review` resurfaces decayed concepts · `/status` shows the map · `/retro` captures notes to
-improve the system.
+improve the system. Only have a few minutes? `/quiz [n]` — a few rapid recall questions, no code,
+still feeds the engine.
 
 ## Updating a topic repo later
 Improved this template? Copy its `.claude/` folder and the markdown docs over your topic repo's —
@@ -34,7 +35,7 @@ collect in a topic repo (`LEARNINGS.md`) are what you fold back into this templa
 - `DESIGN.md` — how it works and why (the source of truth)
 - `CLAUDE.md` — always-loaded flow + directives
 - `.claude/skills/frontier/` — the method (SKILL.md + references)
-- `.claude/commands/` — the verbs: roadmap, next, grade, review, status, retro
+- `.claude/commands/` — the verbs: roadmap, next, grade, quiz, review, status, retro
 - `.claude/agents/grader.md` — the strict two-tier grader
 - `graph.json` / `ledger.json` — the knowledge graph and per-concept state (generated/seeded)
 - `history.jsonl` — append-only progression log; the time series `/status` and `/next` read

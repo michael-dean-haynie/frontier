@@ -9,6 +9,9 @@ in a single growing project. The topic is set by `/roadmap`. Design rationale: `
 3. `/grade` — two-tier verify (fluency timed, judgment untimed) + debrief + record
 4. Repeat. `/review` resurfaces decayed concepts. `/status` shows the map. `/retro` evolves it.
 
+Short on time? `/quiz [n]` — a few rapid Socratic recall questions, no code, still feeds the
+engine. The lightweight sibling of `/next`.
+
 ## How it works — read the skill
 All pedagogy lives in the `frontier` skill (`.claude/skills/frontier/`), which implements
 `DESIGN.md`. The engine is a prerequisite knowledge graph (`graph.json`) with per-concept decay
